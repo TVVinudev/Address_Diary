@@ -8,17 +8,17 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "*",
-    Credential: true
+    origin: "http://localhost:3000",
+    credentials: true 
 }));
 app.use(json());
-app.use('/',mainRoute)
 
 
-const port = process.env.PORT;
+app.use('/', mainRoute);
+
+const port = process.env.PORT || 5000; 
 
 
 app.listen(port, () => {
-    console.log('running port ', port);
-
+    console.log(`Server is running on port ${port}`);
 });

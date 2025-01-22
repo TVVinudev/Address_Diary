@@ -33,21 +33,41 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone git@github.com:dinshasivan/task_manager.git
+    git clone https://github.com/TVVinudev/Address_Diary.git
     ```
-2. Navigate to the project directory:
-    ```bash
-    cd frontend
-    ```
-3. Install the dependencies:
-    ```bash
-    npm install
-    ```
-4. Start the project:
+2. open server file in terminal ,
+   ```bash
+   npm install
+   ```
+3. Create a .env file and set
+    PORT = <your port number>
+
+4. Run your mongodb
+   ```bash
+    sudo systemctl start mongod
+   ```
+
+6. Start the server:
     ```bash
     npm run dev
     ```
-5. Here is the ```bash vite.config.js ``` file you'll be using.
+7. Navigate to the project directory:
+    ```bash
+    cd frontend
+    ```
+8. Install the dependencies:
+    ```bash
+    npm install
+    ```
+9. Create a .env file and set
+    PROXY_URL = <set your proxy url>
+    
+10. Start the ui:
+    ```bash
+    npm run dev
+    ```
+    
+11. Here is the ```bash vite.config.js ``` file you'll be using.
    
    ```bash
     import { defineConfig } from 'vite'
@@ -68,25 +88,7 @@ To run the project locally, follow these steps:
       },
     })
    ```
-### Mongodb Setup
 
-1. Install and open MongoDB Compass.
-2. Create a new connection to your local MongoDB server or an Atlas cluster.
-
-### Backend Setup
-
-1. Navigate to the project directory:
-    ```bash
-    cd backend
-    ```
-2. Install the dependencies:
-    ```bash
-    npm install
-    ```
-3. Start the project:
-    ```bash
-    npm start
-    ```
 ### API Documentation
 ### Task Management
 ### 1. Create Task
@@ -100,11 +102,10 @@ To run the project locally, follow these steps:
 **Request Body:**
 ```bash
     {
-  "title": "New Task",
-  "description": "Description of the task",
-  "status":"pending",
-  "priority":"Low",
-  "createdAt":"12/01/2025"
+  "id": "1001",
+  "name": "Vinudev",
+  "address":"Thakidiyi, Karimpani, Kottayam",
+  "phone":"9876543210",
     }
 ```
 ### 2. Update Task
@@ -116,16 +117,14 @@ To run the project locally, follow these steps:
 **Request Body:**
 ```bash
     {
-    "title":"Updated Task",
-    "description":"Description of updated task",
-    "status":"pending",
-    "priority":"low",
-    "createdAt":"20/1/2025"
+  "name": "Vinudev",
+  "address":"Thakidiyi, Karimpani, Kottayam",
+  "phone":"9876543210",
     }
 ```
 ### 3. Delete Task
 
-**Endpoint:** /api/deleteTask
+**Endpoint:** /api/delete/1001
 
 
 **Method:** DELETE
@@ -138,7 +137,7 @@ To run the project locally, follow these steps:
 ```
 ### 4. Get Task using id
 
-**Endpoint:** /api/getTask
+**Endpoint:** /api/view
 
 **Method:** GET
 
